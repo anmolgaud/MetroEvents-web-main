@@ -20,6 +20,14 @@ export default {
         'elevated-0' : '#ff1354',
         'elevated-1' : '#a06be3'
       },
+      backgroundImage : {
+        'Minimal' : 'url(/backgrounds/Minimal.png)',
+        'Holiday' : 'url(/backgrounds/Holiday.png)',
+        'Abstract': 'url(/backgrounds/Abstract.png)',
+        'Quantum' : 'url(/backgrounds/Quantum.jpg)',
+      }
     },
   },
+  plugins: [require("tw-elements/dist/plugin.cjs")],
+
 }
