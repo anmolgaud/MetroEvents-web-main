@@ -9,7 +9,7 @@ const Popup = () => {
     const dispatch = useDispatch();
     const {ModalOpen} = useSelector((store) => store.siteTheme)
     return ModalOpen ? (
-      <div className="absolute z-10 top-0 left-0 w-full h-full backdrop-blur-sm bg-gradient-to-b from-white/50 to-white/30">
+      <div className="fixed z-10 top-0 left-0 w-full h-full backdrop-blur-sm bg-gradient-to-b from-white/50 to-white/30">
         <div className="w-full h-full grid place-content-center items-center">
           <div className="relative flex flex-col justify-center items-center">
             <CreateEventModal />
