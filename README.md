@@ -1,8 +1,35 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# MetroEvents
+MetroEvents is event management frontend application  
+10Times frontend assignment
 
-Currently, two official plugins are available:
+## Screenshots
+Create Event Card Screenshot
+![Create Event Card](https://github.com/anmolgaud/MetroEvents-web-main/blob/main/Screenshots/EventCard.png?raw=true)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Listing Page Screenshot
+![Listing Page](https://github.com/anmolgaud/MetroEvents-web-main/blob/main/Screenshots/ListingPage.png?raw=true)
+
+
+
+## Installation
+Clone the repository and use the following to install
+
+```bash
+ cd MetroEvents-web-main
+ npm install
+ npm run dev
+```
+    
+### Tech Stack
+ReactJS Framework  
+Redux, ReduxJS Toolkit - For state management  
+TailwinCSS - For styling
+
+
+
+
+## Authors
+
+- [@AnmolGaud](https://github.com/anmolgaud)
+
