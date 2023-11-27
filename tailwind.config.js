@@ -8,10 +8,13 @@ export default {
     fontFamily : {
       sans : ['Poppins', 'sans-serif'],
     },
-    
     extend: {
+      fontFamily : {
+        'Poppins' : ['Poppins', 'sans-serif'],
+        'Roboto' : ['Roboto', 'sans-serif'],
+        'Decorative' : ['Playfair Display', 'serif'],
+      },
       colors : {
-      
         'background-0' : '#0B0E14',
         'background-1' : '#191E29',
         'accent-1' : '#E1E8F5',

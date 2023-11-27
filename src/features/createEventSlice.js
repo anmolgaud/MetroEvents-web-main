@@ -13,9 +13,9 @@ const initialState = {
   },
   themeOptions: {
     ThemeText: "You Are Invited",
-    ThemeLayout: "minimal",
-    TextColor: "White",
-    TypeFace: "Poppins",
+    ThemeLayout: "Minimal",
+    TextColor: "white",
+    TypeFace: "Decorative",
   },
 };
 
@@ -57,9 +57,12 @@ const createEventSlice = createSlice({
     changeTextColor: (state, action) => {
       state.themeOptions.TextColor = action.payload;
     },
-    changeTypeface: (state, action) => {
+    changeTypeFace: (state, action) => {
       state.themeOptions.TypeFace = action.payload;
     },
+    resetState : (state) => {
+      state = initialState;
+    }
   },
 });
 
@@ -75,7 +78,8 @@ export const {
   changeThemeText,
   changeThemeLayout,
   changeTextColor,
-  changeTypeface,
+  changeTypeFace,
+  resetState,
 } = createEventSlice.actions;
 
 export default createEventSlice.reducer;
