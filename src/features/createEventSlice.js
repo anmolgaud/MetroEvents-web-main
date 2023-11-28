@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  title: "",
-  startDateTime: Date.now(),
-  endDateTime: Date.now(),
+  title: "Title",
+  startDateTime: new Date(),
+  endDateTime: new Date(),
   location: "",
   eventOptions: {
     Tickets: "free",
@@ -13,7 +13,7 @@ const initialState = {
   },
   themeOptions: {
     ThemeText: "You Are Invited",
-    ThemeLayout: "Minimal",
+    ThemeLayout: "Holiday",
     TextColor: "white",
     TypeFace: "Decorative",
   },

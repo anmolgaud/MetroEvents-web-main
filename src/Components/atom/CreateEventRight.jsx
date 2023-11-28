@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
@@ -35,10 +35,7 @@ const fontFamily = new Map([
 
 const CreateEventRight = () => {
     const dispatch = useDispatch();
-    const { DarkMode } = useSelector((store) => store.siteTheme);
-    const {ThemeText, ThemeLayout, TextColor, TypeFace} = useSelector((store) => store.createEvent.themeOptions);
-
-    console.log(fontFamily.get(TypeFace));
+    const {ThemeLayout, TextColor, TypeFace} = useSelector((store) => store.createEvent.themeOptions);
 
     return(
         <div className="bg-white rounded-md p-4">
@@ -61,7 +58,7 @@ const CreateEventRight = () => {
                 </div>
                 <DropDown
                   reducer={changeThemeLayout}
-                  defaultValue={"Minimal"}
+                  defaultValue={"Holiday"}
                   optionValues={["Minimal", "Holiday", "Abstract", "Quantum"]}
                 />
               </div>

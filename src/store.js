@@ -5,5 +5,11 @@ export default configureStore({
     reducer : {
         siteTheme : siteThemeReducer,
         createEvent : createEventReducer,
-    }
+    },
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredPaths: ['siteTheme.Events', 'createEvent.startDateTime', 'createEvent.endDateTime'],
+      },
+    }),
 })

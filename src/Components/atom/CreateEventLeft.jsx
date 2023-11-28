@@ -40,19 +40,21 @@ const CreateEventLeft = () => {
   let startDate = "", startTime = "", endDate = "", endTime = "";
 
   const handleStartDateTime = () => {
-    const startDateTime = new Date(`${startDate}T${startTime}`);
-    console.log(startDateTime);
+    // const temp = startDate.split("-");
+    // temp.reverse();
+    // startDate = temp.join("-");
+    const startDateTime = (startDate + 'T' + startTime);
     dispatch(changeStartDateTime(startDateTime));
   }
 
   const handleEndDateTime = () => {
-    const endDateTime = new Date(`${endDate}T${endTime}`);
-    console.log(endDateTime);
+    const endDateTime = (endDate + 'T' + endTime);
     dispatch(changeEndDateTime(endDateTime));
   }
 
   const handleSubmit = () => {
-
+    handleStartDateTime();
+    handleEndDateTime();
     const re = new RegExp(
       "(https://www.|http://www.|https://|http://)?[a-zA-Z0-9]{2,}(.[a-zA-Z0-9]{2,})(.[a-zA-Z0-9]{2,})?"
     );
@@ -73,7 +75,7 @@ const CreateEventLeft = () => {
     }
 
     dispatch(AddEvent(newEvent));
-    dispatch(resetState());
+    //dispatch(resetState());
     dispatch(ToggleModal());
   }
 
@@ -108,7 +110,6 @@ const CreateEventLeft = () => {
             <input
               onChange={(e) => {
                 startTime = e.target.value;
-                handleStartDateTime();
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-4 col-end-6"
               type="time"
@@ -126,7 +127,6 @@ const CreateEventLeft = () => {
             <input
               onChange={(e) => {
                 endTime = e.target.value;
-                handleEndDateTime();
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-4 col-end-6"
               type="time"
