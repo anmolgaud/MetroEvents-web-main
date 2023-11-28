@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   changeTitle,
@@ -37,19 +37,24 @@ const CreateEventLeft = () => {
   const { title, endDateTime, location, eventOptions } = useSelector(
     (store) => store.createEvent,
   );
-  let startDate = "",
-    startTime = "",
-    endDate = "",
-    endTime = "";
+
+  const [startDate, setStartDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+  const [endDate, setEndDate] = useState("");
 
   const handleStartDateTime = () => {
+    console.log(startDate, startTime)
     const startDateTime = startDate + "T" + startTime;
+    console.log(startDateTime);
     dispatch(changeStartDateTime(startDateTime));
   };
 
   const handleEndDateTime = () => {
+    console.log(endDate, endTime)
     const endDateTime = endDate + "T" + endTime;
     dispatch(changeEndDateTime(endDateTime));
+    console.log(endDateTime);
   };
 
   const handleSubmit = () => {
@@ -100,14 +105,14 @@ const CreateEventLeft = () => {
             <p className="col-start-1 col-end-2">Start</p>
             <input
               onChange={(e) => {
-                startDate = e.target.value;
+                setStartDate(e.target.value);
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-2 col-end-4"
               type="date"
             />
             <input
               onChange={(e) => {
-                startTime = e.target.value;
+                setStartTime(e.target.value);
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-4 col-end-6"
               type="time"
@@ -117,14 +122,14 @@ const CreateEventLeft = () => {
             <p className="col-start-1 col-end-2">End</p>
             <input
               onChange={(e) => {
-                endDate = e.target.value;
+                setEndDate(e.target.value);
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-2 col-end-4"
               type="date"
             />
             <input
               onChange={(e) => {
-                endTime = e.target.value;
+                setEndTime(e.target.value);
               }}
               className="px-2 py-1 bg-neutral-200 rounded-md col-start-4 col-end-6"
               type="time"
