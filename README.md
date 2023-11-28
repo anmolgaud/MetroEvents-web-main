@@ -2,6 +2,7 @@
 # MetroEvents
 MetroEvents is event management frontend application  
 10Times frontend assignment
+[Demo](https://metroevents-anmoldev.netlify.app)
 
 ## Screenshots
 Create Event Card Screenshot

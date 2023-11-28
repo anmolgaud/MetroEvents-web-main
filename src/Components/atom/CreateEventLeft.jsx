@@ -24,39 +24,39 @@ import { GoPencil } from "react-icons/go";
 import { CgCalendarTwo } from "react-icons/cg";
 import { AiOutlineGlobal } from "react-icons/ai";
 
-
 const getOffset = () => {
   const d = new Date().toString();
-  const offset = d.split(' ')[5];
-  const res = offset.slice(0,6) + ':' + offset.slice(6);
+  const offset = d.split(" ")[5];
+  const res = offset.slice(0, 6) + ":" + offset.slice(6);
   return res;
-}
-
+};
 
 const CreateEventLeft = () => {
   const dispatch = useDispatch();
-  const {Events} = useSelector((store) => store.siteTheme);
-  const {title, endDateTime, location, eventOptions} = useSelector((store) => store.createEvent);
-  let startDate = "", startTime = "", endDate = "", endTime = "";
+  const { Events } = useSelector((store) => store.siteTheme);
+  const { title, endDateTime, location, eventOptions } = useSelector(
+    (store) => store.createEvent,
+  );
+  let startDate = "",
+    startTime = "",
+    endDate = "",
+    endTime = "";
 
   const handleStartDateTime = () => {
-    // const temp = startDate.split("-");
-    // temp.reverse();
-    // startDate = temp.join("-");
-    const startDateTime = (startDate + 'T' + startTime);
+    const startDateTime = startDate + "T" + startTime;
     dispatch(changeStartDateTime(startDateTime));
-  }
+  };
 
   const handleEndDateTime = () => {
-    const endDateTime = (endDate + 'T' + endTime);
+    const endDateTime = endDate + "T" + endTime;
     dispatch(changeEndDateTime(endDateTime));
-  }
+  };
 
   const handleSubmit = () => {
     handleStartDateTime();
     handleEndDateTime();
     const re = new RegExp(
-      "(https://www.|http://www.|https://|http://)?[a-zA-Z0-9]{2,}(.[a-zA-Z0-9]{2,})(.[a-zA-Z0-9]{2,})?"
+      "(https://www.|http://www.|https://|http://)?[a-zA-Z0-9]{2,}(.[a-zA-Z0-9]{2,})(.[a-zA-Z0-9]{2,})?",
     );
     let eventLocation = "offline";
     if (re.test(location)) eventLocation = "virtual";
@@ -65,20 +65,18 @@ const CreateEventLeft = () => {
     if (eventOptions.ApprovalRequired) invitationType = "invited";
 
     const newEvent = {
-      eventId : Events.length + 1,
-      timestamp : new Date(`${endDate}T${endTime}`),
+      eventId: Events.length + 1,
+      timestamp: new Date(`${endDate}T${endTime}`),
       title,
-      eventBy : 'AnmolGaud',
-      location : eventLocation,
+      eventBy: "AnmolGaud",
+      location: eventLocation,
       invitationType,
-      imgLocation : '/images/metroEventsLogo.png',
-    }
+      imgLocation: "/images/metroEventsLogo.png",
+    };
 
     dispatch(AddEvent(newEvent));
-    //dispatch(resetState());
     dispatch(ToggleModal());
-  }
-
+  };
 
   return (
     // First Section
@@ -213,8 +211,7 @@ const CreateEventLeft = () => {
         </div>
         <button
           onClick={() => {
-          handleSubmit();
-            
+            handleSubmit();
           }}
           className="bg-neutral-800 w-full rounded-md py-2 mt-8 font-semibold tracking-wide text-neutral-100"
         >
@@ -223,7 +220,6 @@ const CreateEventLeft = () => {
       </div>
     </div>
   );
-}
+};
 
 export default CreateEventLeft;
-

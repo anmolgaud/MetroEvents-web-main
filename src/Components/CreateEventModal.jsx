@@ -1,6 +1,6 @@
-import React from 'react'
-import CreateEventLeft from './atom/CreateEventLeft'
-import CreateEventRight from './atom/CreateEventRight'
+import React from "react";
+import CreateEventLeft from "./atom/CreateEventLeft";
+import CreateEventRight from "./atom/CreateEventRight";
 
 const CreateEventModal = () => {
   return (
@@ -10,7 +10,7 @@ const CreateEventModal = () => {
         <CreateEventRight />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CreateEventModal
+export default CreateEventModal;

@@ -2,18 +2,16 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import {
-  Dropdown,
-  initTE,
-} from "tw-elements";
+import { Dropdown, initTE } from "tw-elements";
 
+//DropDown uses Tw-elemtents UI Library
 
-const DropDown = ({reducer, defaultValue, optionValues}) => {
-  const dispatch = useDispatch()
+const DropDown = ({ reducer, defaultValue, optionValues }) => {
+  const dispatch = useDispatch();
   const [selected, setSelected] = useState(defaultValue);
-  useEffect(()=>{
-    initTE({ Dropdown, });
-  }, [selected,])
+  useEffect(() => {
+    initTE({ Dropdown });
+  }, [selected]);
   return (
     <div className="relative" data-te-dropdown-ref>
       <button
@@ -22,7 +20,6 @@ const DropDown = ({reducer, defaultValue, optionValues}) => {
         id="visibility"
         data-te-dropdown-toggle-ref
         aria-expanded="false"
-        
       >
         {selected}
         <span className="ml-2 mr-1 w-2">
@@ -45,15 +42,18 @@ const DropDown = ({reducer, defaultValue, optionValues}) => {
         aria-labelledby="visibility"
         data-te-dropdown-menu-ref
       >
-        {optionValues.map((value, index) => 
-          <li key={index}
-          className="block w-full whitespace-nowrap capitalize bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
-          data-te-dropdown-item-ref
-          onClick={()=> {setSelected(value), dispatch(reducer(value))}}
-        >
-          {value}
-      </li>
-        )}
+        {optionValues.map((value, index) => (
+          <li
+            key={index}
+            className="block w-full whitespace-nowrap capitalize bg-transparent px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-neutral-100 active:text-neutral-800 active:no-underline disabled:pointer-events-none disabled:bg-transparent disabled:text-neutral-400"
+            data-te-dropdown-item-ref
+            onClick={() => {
+              setSelected(value), dispatch(reducer(value));
+            }}
+          >
+            {value}
+          </li>
+        ))}
       </ul>
     </div>
   );

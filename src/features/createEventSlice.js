@@ -60,9 +60,9 @@ const createEventSlice = createSlice({
     changeTypeFace: (state, action) => {
       state.themeOptions.TypeFace = action.payload;
     },
-    resetState : (state) => {
+    resetState: (state) => {
       state = initialState;
-    }
+    },
   },
 });
 
